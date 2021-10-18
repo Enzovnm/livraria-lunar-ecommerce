@@ -1,0 +1,11 @@
+﻿//IMPORT CUSTOM
+@import "custom.scss";
+
+//IMPORT THE COMPONENTS
+
+@import "components/_mixins.scss";
+@import "components/_buttons.scss";
+@import "components/_typography.scss";
+
+//IMPORT SECTIONS
+@import "sections/_navbar.scss";

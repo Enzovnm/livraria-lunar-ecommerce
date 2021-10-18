@@ -1,0 +1,12 @@
+﻿.search-bar {
+  position: relative;
+  font-size: 1rem;
+  width: 60%; }
+  .search-bar input {
+    border-radius: 10px; }
+  .search-bar button {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: 0;
+    transform: translate(-50%, 25%); }

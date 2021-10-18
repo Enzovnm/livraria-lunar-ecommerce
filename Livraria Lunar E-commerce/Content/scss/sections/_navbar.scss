@@ -1,0 +1,58 @@
+﻿.menu {
+    li {
+        a {
+            margin: 0 0px 0 10px;
+        }
+    }
+
+    .search-bar {
+        margin-left: 30px;
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .search {
+            width: 650px;
+            color: #8c8c8c;
+            border: 0;
+            background-clip: padding-box;
+
+            &:focus {
+                border: 1px solid;
+                border-color: rgba(0,0,0,0.1);
+            }
+
+            @include media-breakpoint-down(xl) {
+                width: 500px;
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+                border-bottom:5rem;
+            }
+        }
+    }
+}
+
+
+.nav-link {
+    color: rgba(0,0,0,.8) !important;
+
+    i{
+        font-size:1.1rem
+    }
+}
+
+
+.modal{
+
+    &__admin{
+        width:300px;
+        color:$white;
+    }
+}
+
+
+
