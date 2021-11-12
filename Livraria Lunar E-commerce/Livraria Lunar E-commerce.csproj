@@ -142,14 +142,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\images\Logosemcor-horizontal.png" />
     <Content Include="Content\assets\images\Logosemcor.png" />
     <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
     <Content Include="Content\scss\components\_buttons.css" />
     <Content Include="Content\scss\components\_buttons.min.css" />
     <Content Include="Content\scss\components\_mixins.css" />
     <Content Include="Content\scss\components\_mixins.min.css" />
-    <Content Include="Content\scss\styles.css" />
-    <Content Include="Content\scss\styles.min.css" />
+    <Content Include="Content\scss\estilo.css">
+      <DependentUpon>estilo.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\estilo.min.css">
+      <DependentUpon>estilo.css</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\estilo1.css">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>estilo.scss</DependentUpon>
+    </Content>
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -157,11 +167,9 @@
     <Content Include="Content\scss\components\_mixins.scss" />
     <Content Include="Content\scss\components\_typography.scss" />
     <Content Include="Content\scss\sections\_navbar.scss" />
-    <Content Include="Content\scss\styles.scss">
-      <Generator>SassTranspiler</Generator>
-      <LastGenOutput>styles1.css</LastGenOutput>
+    <Content Include="Content\scss\_custom.scss">
+      <LastGenOutput>_custom.css</LastGenOutput>
     </Content>
-    <Content Include="Content\scss\_custom.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-utilities.scss" />
@@ -269,6 +277,15 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Content\scss\estilo.scss">
+      <Generator>SassTranspiler</Generator>
+      <LastGenOutput>estilo1.css</LastGenOutput>
+    </Content>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\scss\sections\_main_adm.scss" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

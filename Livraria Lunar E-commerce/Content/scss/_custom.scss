@@ -26,9 +26,20 @@ $primary: $yellow-dark;
 
 //MODAL
 $modal-content-bg: $black-light;
+$offcanvas-horizontal-width: 270px;
 
 //FORM
 $input-btn-focus-color: none;
 $input-focus-border-color: rgba(0,0,0,0.8);
+
+
+//NEW VARIABLES
+$topNavbarHeight : 58px;
+
+
+body{
+    overflow:auto !important;
+}
+
 
 @import "../bootstrap/bootstrap.scss";

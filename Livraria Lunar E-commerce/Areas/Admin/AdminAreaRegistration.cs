@@ -17,7 +17,8 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "Livraria_Lunar_E_commerce.Areas.Admin.Controllers" }
             );
         }
     }

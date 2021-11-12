@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 {
+    [RouteArea("Admin")]
     public class HomeController : Controller
     {
         // GET: Admin/Home
