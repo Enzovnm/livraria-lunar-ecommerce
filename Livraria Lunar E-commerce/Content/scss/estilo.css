@@ -7604,7 +7604,7 @@ textarea.form-control-lg {
       visibility: visible !important;
       top: 58px;
       height: calc(100% - $topNavbarHeight);
-      z-index: -999; } }
+      z-index: 1; } }
 
 @media (min-width: 992px) {
   .offcanvas-backdrop::before {
@@ -7635,5 +7635,66 @@ textarea.form-control-lg {
   background-color: #5B5B5B;
   border-radius: 10px; }
 
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    width: 60%; } }
+
 main {
-  margin-left: 270px; }
+  margin-left: 270px;
+  z-index: -999; }
+  @media (max-width: 767.98px) {
+    main {
+      margin-left: 0; } }
+
+.bg-title {
+  background-image: linear-gradient(to right top, #212529, #282a2d, #2e2f31, #343435, #393939) !important; }
+
+.form__div {
+  position: relative;
+  height: 48px;
+  margin-bottom: 1.5rem; }
+
+.form__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border: 1px solid #DADCE0;
+  border-radius: .5rem;
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1; }
+
+.form__label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  padding: 0 .25rem;
+  background-color: #fff;
+  color: #80868B;
+  font-size: 1rem;
+  transition: .3s; }
+
+.form__input:focus + .form__label {
+  top: -.5rem;
+  left: .8rem;
+  color: #1A73E8;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 10; }
+
+.form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+  top: -.5rem;
+  left: .8rem;
+  font-size: .75rem;
+  font-weight: 500;
+  z-index: 10; }
+
+.form__input:focus {
+  border: 1.5px solid #1A73E8; }
+
+.div__shadow {
+  user-select: none; }

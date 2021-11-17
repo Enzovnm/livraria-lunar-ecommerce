@@ -1,0 +1,121 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Administradores
+
+@{
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Cadastro de Administradores</h2>
+
+<form method="get" action=".">
+    <div class="shadow p-3 ps-5 pt-5 bg-body rounded pb-5 div__shadow">
+        <div class="row">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.nm_admin, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.nm_admin, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.ds_email, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.ds_email, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.ds_senha, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.ds_senha, htmlAttributes: new { @class = "form__label", @type = "password" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.cpf, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.telefone, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.telefone, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.celular, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.cep, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.cep, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.bairro, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.rua, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.rua, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.no_logradouro, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.no_logradouro, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.uf, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.uf, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.cidade, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.cidade, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.sg_sexo, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.sg_sexo, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="form__div col-md-10">
+                    @Html.EditorFor(model => model.ds_status, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.ds_status, htmlAttributes: new { @class = "form__label" })
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
+
+
+
+ 
+

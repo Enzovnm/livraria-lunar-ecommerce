@@ -60,7 +60,7 @@
         visibility: visible !important;
         top: $topNavbarHeight;
         height: calc(100% - $topNavbarHeight);
-        z-index: -999
+        z-index: 1;
     }
 }
 
@@ -105,4 +105,10 @@
 .scroll::-webkit-scrollbar-thumb {
     background-color: #5B5B5B;
     border-radius: 10px;
+}
+
+.navbar-brand {
+    @include media-breakpoint-down(sm) {
+        width:60%;
+    }
 }

@@ -83,3 +83,16 @@ C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce
 C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\obj\Debug\Livraria Lunar E-commerce.csproj.CopyComplete
 C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\obj\Debug\Livraria Lunar E-commerce.dll
 C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\obj\Debug\Livraria Lunar E-commerce.pdb
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\MySql.Data.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\Google.Protobuf.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\Zstandard.Net.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\K4os.Compression.LZ4.Streams.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\BouncyCastle.Crypto.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\Ubiety.Dns.Core.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\System.Memory.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\System.Buffers.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\K4os.Compression.LZ4.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\K4os.Hash.xxHash.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\System.Numerics.Vectors.dll
+C:\Users\enzom\Desktop\TCM 3° MÓDULO\Aplicação Web\Livraria Lunar E-commerce\Livraria Lunar E-commerce\Livraria Lunar E-commerce\bin\MySql.Data.xml
