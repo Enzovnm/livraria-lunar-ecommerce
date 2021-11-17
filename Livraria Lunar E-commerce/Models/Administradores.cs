@@ -23,7 +23,7 @@ namespace Livraria_Lunar_E_commerce.Models
 
         [Required]
         [Display(Name = "Senha")]
-        [MaxLength(70, ErrorMessage = "A Senha do Administrador deve conter no máximo 20 caracteres")]
+        [MaxLength(20, ErrorMessage = "A Senha do Administrador deve conter no máximo 20 caracteres")]
         [MinLength(8, ErrorMessage = "A senha deve conter no mínimo 8 caracteres")]
         public string ds_senha { get; set; }
 
@@ -70,8 +70,8 @@ namespace Livraria_Lunar_E_commerce.Models
 
         [Required]
         [Display(Name = "CEP")]
-        [MinLength(9, ErrorMessage = "O CEP deve conter no mínimo 9 caracteres")]
-        [MaxLength(9, ErrorMessage = "O CEP deve conter no máximo 9 caracteres")]
+        [MinLength(8, ErrorMessage = "O CEP deve conter no mínimo 9 caracteres")]
+        [MaxLength(8, ErrorMessage = "O CEP deve conter no máximo 9 caracteres")]
         public string cep { get; set; }
 
         [Required]
@@ -81,7 +81,15 @@ namespace Livraria_Lunar_E_commerce.Models
 
         [Required]
         [Display(Name = "Status")]
-        public string ds_status { get; set; }
+        [Range(0,1)]
+        public int ds_status { get; set; }
+
+
+
+        [Required]
+        [Display(Name = "Cargo")]
+        [Range(2,3)]
+        public int ds_tipo { get; set; }
 
     }
 }

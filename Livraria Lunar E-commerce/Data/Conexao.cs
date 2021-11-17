@@ -8,7 +8,7 @@ namespace Livraria_Lunar_E_commerce.Data
 {
     public class Conexao
     {
-        MySqlConnection cn = new MySqlConnection("Server=localhost; DataBase=db_Bicicleta; User=root;pwd=e1222");
+        MySqlConnection cn = new MySqlConnection("Server=localhost; DataBase=db_Ecommerce; User=root;pwd=e1222");
 
         public static string msg;
 

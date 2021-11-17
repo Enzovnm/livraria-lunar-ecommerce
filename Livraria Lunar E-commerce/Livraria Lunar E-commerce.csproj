@@ -137,6 +137,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministradoresController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Business\AdministradoresAcoes.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Conexao.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,7 +278,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Funcionario\" />
     <Folder Include="Content\css\" />
   </ItemGroup>
