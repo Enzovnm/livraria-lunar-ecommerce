@@ -8,58 +8,56 @@ using System.Web.Mvc;
 
 namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 {
-    public class AdministradoresController : Controller
+    public class ClientesController : Controller
     {
-        // GET: Admin/Administradores
+        // GET: Admin/Clientes
         public ActionResult Cadastrar()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Administradores admin)
+        public ActionResult Cadastrar(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                AdministradoresAcoes acAdmin = new AdministradoresAcoes();
-                acAdmin.Cadastrar(admin);
+                ClientesAcoes acCliente = new ClientesAcoes();
+                acCliente.Cadastrar(cliente);
                 return RedirectToAction("Consultar");
             }
             return View();
         }
 
-        public ActionResult Consultar()
+        public ActionResult Consultar(Cliente Cliente)
         {
-            AdministradoresAcoes acAdmin = new AdministradoresAcoes();
-            return View(acAdmin.Consultar());
+            ClientesAcoes acCliente = new ClientesAcoes(); 
+            return View(acCliente.Consultar());
         }
-
 
         public ActionResult Editar(int id)
         {
-            AdministradoresAcoes acAdmin = new AdministradoresAcoes();
-            return View(acAdmin.Consultar().Find(dto => dto.cd_admin == id));
+            ClientesAcoes acCliente = new ClientesAcoes();
+            return View(acCliente.Consultar().Find(dto => dto.cd_cliente == id));
         }
 
         [HttpPost]
-        public ActionResult Editar(Administradores dto)
+        public ActionResult Editar(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                AdministradoresAcoes acAdmin = new AdministradoresAcoes();
-                acAdmin.Alterar(dto);
+                ClientesAcoes acCliente = new ClientesAcoes();
+                acCliente.Alterar(cliente);
                 return RedirectToAction("Consultar");
             }
-
             return View();
         }
 
+
         public ActionResult Excluir(int id)
         {
-            AdministradoresAcoes acAdmin = new AdministradoresAcoes();
-            acAdmin.Excluir(id);
+            ClientesAcoes acCliente = new ClientesAcoes();
+            acCliente.Excluir(id);
             return RedirectToAction("Consultar");
         }
-
     }
 }

@@ -1,0 +1,33 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Categoria
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center  mb-0 bg-title py-5 text-white">Editar Categorias</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.cd_categoria)
+
+    <div class="shadow p-3 ps-md-2 ps-lg-5 pt-5 bg-body rounded pb-5 div__shadow overflow-hidden">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="form__div col-8">
+                    @Html.EditorFor(model => model.nm_categoria, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                    @Html.LabelFor(model => model.nm_categoria, htmlAttributes: new { @class = "form__label" })
+                </div>
+                @Html.ValidationMessageFor(model => model.nm_categoria, "", new { @class = "text-danger text-center" })
+            </div>
+        </div>
+        <div class="text-center mt-2">
+            <input type="submit" value="Editar" class="btn btn-primary px-5 py-3 translate-middle-x rounded" />
+        </div>
+    </div>
+
+
+}
+

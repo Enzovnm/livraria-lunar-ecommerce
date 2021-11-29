@@ -7639,10 +7639,14 @@ textarea.form-control-lg {
   .navbar-brand {
     width: 60%; } }
 
+html {
+  overflow-x: hidden;
+  width: 100%; }
+
 main {
   margin-left: 270px;
   z-index: -999; }
-  @media (max-width: 767.98px) {
+  @media (max-width: 991.98px) {
     main {
       margin-left: 0; } }
 
@@ -7698,3 +7702,9 @@ main {
 
 .div__shadow {
   user-select: none; }
+
+.table {
+  table-layout: auto; }
+  @media (min-width: 992px) {
+    .table {
+      table-layout: fixed; } }

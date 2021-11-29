@@ -1,0 +1,30 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Editora
+
+@{
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center  mb-0 bg-title py-5 text-white">Cadastro de Editora</h2>
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+
+<div class="shadow p-3 ps-md-2 ps-lg-5 pt-5 bg-body rounded pb-5 div__shadow overflow-hidden">
+    <div class="ps-5 row justify-content-center">
+        <div class="col-6">
+            <div class="form__div col-8">
+                @Html.EditorFor(model => model.nm_editora, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                @Html.LabelFor(model => model.nm_editora, htmlAttributes: new { @class = "form__label" })
+            </div>
+            @Html.ValidationMessageFor(model => model.nm_editora, "", new { @class = "text-danger text-center" })
+        </div>
+    </div>
+    <div class="text-center mt-2">
+        <input type="submit" value="Cadastrar" class="btn btn-primary px-5 py-3 translate-middle-x rounded" />
+    </div>
+</div>
+
+
+}

@@ -6,24 +6,24 @@ using System.Web;
 
 namespace Livraria_Lunar_E_commerce.Models
 {
-    public class Administradores
+    public class Cliente
     {
         [Display(Name = "Código")]
-        public int cd_admin { get; set; }
-        
-        [Required(ErrorMessage = "O Campo Nome do Administrador é obrigatório")]
-        [Display(Name = "Nome do Administrador")]
-        [MaxLength(70,ErrorMessage = "O nome do Administrador deve conter no máximo 70 caracteres")]
-        public string nm_admin { get; set; }
+        public int cd_cliente { get; set; }
+
+        [Required(ErrorMessage = "O Campo Nome do Cliente é obrigatório")]
+        [Display(Name = "Nome do Cliente")]
+        [MaxLength(70, ErrorMessage = "O nome do Cliente deve conter no máximo 70 caracteres")]
+        public string nm_cliente { get; set; }
 
         [Required]
         [Display(Name = "Email")]
-        [MaxLength(70, ErrorMessage = "O Email do Administrador deve conter no máximo 70 caracteres")]
+        [MaxLength(70, ErrorMessage = "O Email do Cliente deve conter no máximo 70 caracteres")]
         public string ds_email { get; set; }
 
         [Required]
         [Display(Name = "Senha")]
-        [MaxLength(20, ErrorMessage = "A Senha do Administrador deve conter no máximo 20 caracteres")]
+        [MaxLength(20, ErrorMessage = "A senha do Cliente deve conter no máximo 20 caracteres")]
         [MinLength(8, ErrorMessage = "A senha deve conter no mínimo 8 caracteres")]
         public string ds_senha { get; set; }
 
@@ -79,17 +79,7 @@ namespace Livraria_Lunar_E_commerce.Models
         public string sg_sexo { get; set; }
 
 
-        [Required]
-        [Display(Name = "Status")]
-        [Range(0,1)]
-        public int ds_status { get; set; }
-
-
-
-        [Required]
-        [Display(Name = "Cargo")]
-        [Range(2,3)]
-        public int ds_tipo { get; set; }
+        
 
     }
 }

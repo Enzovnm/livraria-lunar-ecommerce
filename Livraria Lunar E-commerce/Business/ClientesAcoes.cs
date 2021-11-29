@@ -1,27 +1,25 @@
+﻿using Livraria_Lunar_E_commerce.Data;
 using Livraria_Lunar_E_commerce.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
-using Livraria_Lunar_E_commerce.Data;
-using MySql.Data.MySqlClient;
 
 namespace Livraria_Lunar_E_commerce.Business
 {
-    public class AdministradoresAcoes
+    public class ClientesAcoes
     {
-     
-    
-        public void Cadastrar(Administradores dto)
+        public void Cadastrar(Cliente dto)
         {
             Conexao con = new Conexao();
 
-            MySqlCommand cmd = new MySqlCommand("Call sp_InsAdministradores(@nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone, " +
-                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade,"+
-                "@sg_uf, @no_cep, @sg_sexo, @ds_status, @ds_tipo);", con.MyConectarBD());
+            MySqlCommand cmd = new MySqlCommand("Call sp_InsUsuario(@nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone, " +
+                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade," +
+                "@sg_uf, @no_cep, @sg_sexo);", con.MyConectarBD());
 
-            cmd.Parameters.Add("@nm_usuario", MySqlDbType.VarChar).Value = dto.nm_admin;
+            cmd.Parameters.Add("@nm_usuario", MySqlDbType.VarChar).Value = dto.nm_cliente;
             cmd.Parameters.Add("@ds_email", MySqlDbType.VarChar).Value = dto.ds_email;
             cmd.Parameters.Add("@ds_senha", MySqlDbType.VarChar).Value = dto.ds_senha;
             cmd.Parameters.Add("@no_cpf", MySqlDbType.VarChar).Value = dto.cpf;
@@ -34,25 +32,22 @@ namespace Livraria_Lunar_E_commerce.Business
             cmd.Parameters.Add("@sg_uf", MySqlDbType.VarChar).Value = dto.uf;
             cmd.Parameters.Add("@no_cep", MySqlDbType.VarChar).Value = dto.cep;
             cmd.Parameters.Add("@sg_sexo", MySqlDbType.VarChar).Value = dto.sg_sexo;
-            cmd.Parameters.Add("@ds_status", MySqlDbType.VarChar).Value = dto.ds_status;
-            cmd.Parameters.Add("@ds_tipo", MySqlDbType.VarChar).Value = dto.ds_tipo;
-
             cmd.ExecuteNonQuery();
             con.MyDesConectarBD();
 
-        
+
         }
 
-        public void Alterar(Administradores dto)
+        public void Alterar(Cliente dto)
         {
             Conexao con = new Conexao();
-            
-            MySqlCommand cmd = new MySqlCommand("Call sp_AltAdministradores(@CodUsuario, @nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone," +
-                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade, @sg_uf,"+
-                " @no_cep, @sg_sexo, @ds_status, @ds_tipo);", con.MyConectarBD());
 
-            cmd.Parameters.Add("@CodUsuario", MySqlDbType.Int32).Value = dto.cd_admin;
-            cmd.Parameters.Add("@nm_usuario", MySqlDbType.VarChar).Value = dto.nm_admin;
+            MySqlCommand cmd = new MySqlCommand("Call sp_AltUsuario(@CodUsuario, @nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone," +
+                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade, @sg_uf," +
+                " @no_cep, @sg_sexo);", con.MyConectarBD());
+
+            cmd.Parameters.Add("@CodUsuario", MySqlDbType.Int32).Value = dto.cd_cliente;
+            cmd.Parameters.Add("@nm_usuario", MySqlDbType.VarChar).Value = dto.nm_cliente;
             cmd.Parameters.Add("@ds_email", MySqlDbType.VarChar).Value = dto.ds_email;
             cmd.Parameters.Add("@ds_senha", MySqlDbType.VarChar).Value = dto.ds_senha;
             cmd.Parameters.Add("@no_cpf", MySqlDbType.VarChar).Value = dto.cpf;
@@ -65,20 +60,18 @@ namespace Livraria_Lunar_E_commerce.Business
             cmd.Parameters.Add("@sg_uf", MySqlDbType.VarChar).Value = dto.uf;
             cmd.Parameters.Add("@no_cep", MySqlDbType.VarChar).Value = dto.cep;
             cmd.Parameters.Add("@sg_sexo", MySqlDbType.VarChar).Value = dto.sg_sexo;
-            cmd.Parameters.Add("@ds_status", MySqlDbType.VarChar).Value = dto.ds_status;
-            cmd.Parameters.Add("@ds_tipo", MySqlDbType.VarChar).Value = dto.ds_tipo;
 
             cmd.ExecuteNonQuery();
             con.MyDesConectarBD();
 
         }
 
-        public List<Administradores> Consultar()
+        public List<Cliente> Consultar()
         {
             Conexao con = new Conexao();
 
-            var listaAdministradores = new List<Administradores>();
-            MySqlCommand cmd = new MySqlCommand("Call sp_MostraFuncionarios", con.MyConectarBD());
+            var listaCliente = new List<Cliente>();
+            MySqlCommand cmd = new MySqlCommand("Call sp_MostraUsuarios", con.MyConectarBD());
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable tabela = new DataTable();
 
@@ -86,11 +79,11 @@ namespace Livraria_Lunar_E_commerce.Business
 
             foreach (DataRow dr in tabela.Rows)
             {
-                listaAdministradores.Add(
-                    new Administradores
+                listaCliente.Add(
+                    new Cliente
                     {
-                        cd_admin = int.Parse(dr["cd_usuario"].ToString()),
-                        nm_admin = dr["nm_usuario"].ToString(),
+                        cd_cliente = int.Parse(dr["cd_usuario"].ToString()),
+                        nm_cliente = dr["nm_usuario"].ToString(),
                         ds_email = dr["ds_email"].ToString(),
                         cpf = dr["no_cpf"].ToString(),
                         telefone = dr["no_telefone"].ToString(),
@@ -102,12 +95,11 @@ namespace Livraria_Lunar_E_commerce.Business
                         cidade = dr["nm_cidade"].ToString(),
                         cep = dr["no_cep"].ToString(),
                         sg_sexo = dr["sg_sexo"].ToString(),
-                        ds_status = int.Parse(dr["ds_status"].ToString()),
-                        ds_tipo = int.Parse(dr["ds_tipo"].ToString()),
-                        
+
+
                     });
             }
-            return listaAdministradores;
+            return listaCliente;
         }
 
         public void Excluir(int id)
@@ -123,4 +115,3 @@ namespace Livraria_Lunar_E_commerce.Business
         }
     }
 }
-

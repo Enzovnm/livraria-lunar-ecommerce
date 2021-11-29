@@ -136,14 +136,32 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministradoresController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AutorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClientesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ComentarioController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EditoraController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProdutosController.cs" />
     <Compile Include="Business\AdministradoresAcoes.cs" />
+    <Compile Include="Business\AutorAcoes.cs" />
+    <Compile Include="Business\CategoriaAcoes.cs" />
+    <Compile Include="Business\ClientesAcoes.cs" />
+    <Compile Include="Business\ComentarioAcoes.cs" />
+    <Compile Include="Business\EditorasAcoes.cs" />
+    <Compile Include="Business\ProdutosAcoes.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\Conexao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administradores.cs" />
+    <Compile Include="Models\Autor.cs" />
+    <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Comentarios.cs" />
+    <Compile Include="Models\Editora.cs" />
+    <Compile Include="Models\Produtos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +169,7 @@
     <Content Include="Content\assets\images\Logosemcor.png" />
     <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
     <Content Include="Content\assets\js\cep.js" />
+    <Content Include="Content\assets\js\delete.js" />
     <Content Include="Content\scss\components\_buttons.css" />
     <Content Include="Content\scss\components\_buttons.min.css" />
     <Content Include="Content\scss\components\_mixins.css" />
@@ -263,6 +282,7 @@
     <Content Include="Scripts\inputmask\jquery.inputmask.js" />
     <Content Include="Scripts\inputmask\jquery.inputmask.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\tabela.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -278,8 +298,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Funcionario\" />
     <Folder Include="Content\css\" />
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />
@@ -291,6 +311,22 @@
       <LastGenOutput>estilo1.css</LastGenOutput>
     </Content>
     <Content Include="Areas\Admin\Views\Administradores\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Administradores\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Administradores\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Categoria\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Categoria\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Categoria\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Autor\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Autor\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Autor\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Editora\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Editora\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Editora\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Comentario\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Clientes\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Clientes\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Clientes\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Produtos\Cadastrar.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

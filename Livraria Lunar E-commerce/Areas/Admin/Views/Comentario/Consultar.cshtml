@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Comentarios>
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:100%" class="d-none d-lg-block">
+    <h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Consulta de Comentários</h2>
+</div>
+
+
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card mt-2">
+        <div class="card-header">
+            @item.nm_usuario
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p>" @item.ds_comentario "</p>
+                </div>
+                <div>
+                    <a style="cursor:pointer" class="bg-primary text-dark rounded p-2 delete pos" onclick="ConfirmDelete(@item.cd_comentario)"><i class="bi bi-trash"></i></a>
+                </div>
+
+            </div>
+            <footer class="text-secondary" style="font-size:0.8rem;"> @item.dt_comentario.ToString("dd/MM/yyyy")</footer>
+        </div>
+    </div>
+}
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark ">
+                <h5 class="modal-title text-white">Excluir item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+                <p>Você tem certeza que deseja excluir esse item?</p>
+            </div>
+            <div class="modal-footer bg-white">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="DeleteEmployee()">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*hidden field for storing current employeeId*@
+<input type="hidden" id="hiddenEmployeeId" />
+
+
+
+
+@section scripts{
+    <script>
+
+
+
+        var ConfirmDelete = function (EmployeeId) {
+
+            $("#hiddenEmployeeId").val(EmployeeId);
+            $("#myModal").modal('show');
+
+        }
+
+        var DeleteEmployee = function () {
+
+
+
+            var empId = $("#hiddenEmployeeId").val();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Admin/Comentario/Excluir",
+                data: { Id: empId },
+                success: function (result) {
+
+                    $("#myModal").modal("hide");
+                    $("#row_" + empId).remove();
+                    document.location.reload(true)
+                }
+
+            })
+
+        }
+
+
+
+
+    </script>
+
+}

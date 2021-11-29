@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Autor>
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:100%" class="d-none d-lg-block">
+    <h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Consulta de Autores</h2>
+</div>
+
+
+<table class="table table-hover text-center" style="width: 100%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nm_autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ds_status)
+        </th>
+        <th>Ações</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nm_autor)
+        </td>
+        @if(item.ds_status ==0){
+        <td>Inativo</td>
+        }
+        @if(item.ds_status == 1){
+        <td>Ativo</td>
+        }
+
+        <td>
+            <a href="@Url.Action( "Editar", new {  id=item.cd_autor  })" class="bg-primary text-dark rounded p-1"><i class="bi bi-pen"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Editora>
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:100%" class="d-none d-lg-block">
+    <h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Consulta de Editoras</h2>
+</div>
+
+
+<table class="table table-hover text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nm_editora)
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nm_editora)
+        </td>
+        <td>
+            <a href="@Url.Action( "Editar", new {  id=item.cd_editora })" class="bg-primary text-dark rounded p-1"><i class="bi bi-pen"></i></a>
+            <a class="bg-primary text-dark rounded p-1" style="cursor:pointer" onclick="ConfirmDelete(@item.cd_editora)"><i class="bi bi-trash"></i></a>
+        </td>
+    </tr>
+
+
+    }
+
+</table>
+
+
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark ">
+                <h5 class="modal-title text-white">Excluir item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+                <p>Você tem certeza que deseja excluir esse item?</p>
+            </div>
+            <div class="modal-footer bg-white">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="DeleteEmployee()">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*hidden field for storing current employeeId*@
+<input type="hidden" id="hiddenEmployeeId" />
+
+
+@section scripts{
+<script>
+
+
+
+    var ConfirmDelete = function (EmployeeId) {
+
+        $("#hiddenEmployeeId").val(EmployeeId);
+        $("#myModal").modal('show');
+
+    }
+
+    var DeleteEmployee = function () {
+
+
+
+        var empId = $("#hiddenEmployeeId").val();
+
+        $.ajax({
+
+            type: "POST",
+            url: "/Admin/Editora/Excluir",
+            data: { Id: empId },
+            success: function (result) {
+
+                $("#myModal").modal("hide");
+                $("#row_" + empId).remove();
+                document.location.reload(true)
+            }
+
+        })
+
+    }
+
+
+
+
+</script>
+
+}

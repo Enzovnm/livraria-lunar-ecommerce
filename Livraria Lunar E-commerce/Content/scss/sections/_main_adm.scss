@@ -1,7 +1,12 @@
-﻿main {
+﻿html{
+    overflow-x:hidden;
+    width:100%;
+}
+
+main {
     margin-left: $offcanvas-horizontal-width;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         margin-left: 0;
     }
 
@@ -68,4 +73,12 @@
 
 .div__shadow{
     user-select: none;
+}
+
+.table {
+    table-layout:auto;
+
+    @include media-breakpoint-up(lg) {
+        table-layout: fixed;
+    }
 }

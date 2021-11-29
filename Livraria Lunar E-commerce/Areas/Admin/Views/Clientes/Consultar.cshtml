@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Cliente>
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:100%" class="d-none d-lg-block">
+    <h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Consulta de Clientes</h2>
+</div>
+
+
+
+<table id="myTable" style="width: 100%;" class="table table-hover text-center">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th style="width:8rem; overflow: hidden; text-overflow: ellipsis; white-space:nowrap">
+            @Html.DisplayNameFor(model => model.ds_email)
+        </th>
+        <th style="width: 4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">
+            @Html.DisplayNameFor(model => model.cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rua)
+        </th>
+        <th style="width: 5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">
+            @Html.DisplayNameFor(model => model.no_logradouro)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uf)
+        </th>
+        <th style="width: 4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">
+            @Html.DisplayNameFor(model => model.cep)
+        </th>
+        <th>Ação</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        @Html.AntiForgeryToken()
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nm_cliente)
+            </td>
+
+            <td style="width: 4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap " title="@Html.DisplayFor(modelItem => item.ds_email)">
+                @Html.DisplayFor(modelItem => item.ds_email)
+            </td>
+            <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap" title="@Html.DisplayFor(modelItem => item.cpf)">
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rua)
+            </td>
+            <td style="width: 2rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap" title="@Html.DisplayFor(modelItem => item.no_logradouro)">
+                @Html.DisplayFor(modelItem => item.no_logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uf)
+            </td>
+            <td style="width: 5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap" title="@Html.DisplayFor(modelItem => item.cep)">
+                @Html.DisplayFor(modelItem => item.cep)
+            </td>
+
+            <td>
+                <a href="@Url.Action( "Editar", new {  id=item.cd_cliente  })" class="bg-primary text-dark rounded p-1"><i class="bi bi-pen"></i></a>
+                <a style="cursor:pointer" class="bg-primary text-dark rounded p-1 delete" onclick="ConfirmDelete(@item.cd_cliente)"><i class="bi bi-trash"></i></a>
+            </td>
+
+        </tr>
+
+    }
+
+
+</table>
+
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark ">
+                <h5 class="modal-title text-white">Excluir item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+                <p>Você tem certeza que deseja excluir esse item?</p>
+            </div>
+            <div class="modal-footer bg-white">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="DeleteEmployee()">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*hidden field for storing current employeeId*@
+<input type="hidden" id="hiddenEmployeeId" />
+
+
+@section scripts{
+    <script>
+
+        var ConfirmDelete = function (EmployeeId) {
+
+            $("#hiddenEmployeeId").val(EmployeeId);
+            $("#myModal").modal('show');
+
+        }
+
+        var DeleteEmployee = function () {
+
+
+
+            var empId = $("#hiddenEmployeeId").val();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Admin/Clientes/Excluir",
+                data: { Id: empId },
+                success: function (result) {
+
+                    $("#myModal").modal("hide");
+                    $("#row_" + empId).remove();
+                    document.location.reload(true)
+                }
+
+            })
+
+        }
+
+
+
+
+    </script>
+
+}
