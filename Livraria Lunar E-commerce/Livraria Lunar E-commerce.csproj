@@ -46,7 +46,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -141,16 +147,27 @@
     <Compile Include="Areas\Admin\Controllers\ClientesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ComentarioController.cs" />
     <Compile Include="Areas\Admin\Controllers\EditoraController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EntregasController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LivrosController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProdutosController.cs" />
     <Compile Include="Business\AdministradoresAcoes.cs" />
     <Compile Include="Business\AutorAcoes.cs" />
     <Compile Include="Business\CategoriaAcoes.cs" />
     <Compile Include="Business\ClientesAcoes.cs" />
     <Compile Include="Business\ComentarioAcoes.cs" />
+    <Compile Include="Business\CompraAcoes.cs" />
+    <Compile Include="Business\DashboardAcoes.cs" />
     <Compile Include="Business\EditorasAcoes.cs" />
+    <Compile Include="Business\EntregaAcoes.cs" />
+    <Compile Include="Business\itemComprasAcoes.cs" />
+    <Compile Include="Business\LivrosAcoes.cs" />
+    <Compile Include="Business\LoginAcoes.cs" />
+    <Compile Include="Business\PedidoAcoes.cs" />
     <Compile Include="Business\ProdutosAcoes.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Data\Conexao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,13 +177,48 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Comentarios.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\Dashboard.cs" />
     <Compile Include="Models\Editora.cs" />
+    <Compile Include="Models\Entregas.cs" />
+    <Compile Include="Models\ItemCompra.cs" />
+    <Compile Include="Models\Livros.cs" />
+    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produtos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\images\check.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-144x144.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-192x192.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-36x36.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-48x48.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-72x72.png" />
+    <Content Include="Content\assets\images\favicon\android-icon-96x96.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-114x114.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-120x120.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-144x144.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-152x152.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-180x180.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-57x57.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-60x60.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-72x72.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-76x76.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon-precomposed.png" />
+    <Content Include="Content\assets\images\favicon\apple-icon.png" />
+    <Content Include="Content\assets\images\favicon\browserconfig.xml" />
+    <Content Include="Content\assets\images\favicon\favicon-16x16.png" />
+    <Content Include="Content\assets\images\favicon\favicon-32x32.png" />
+    <Content Include="Content\assets\images\favicon\favicon-96x96.png" />
+    <Content Include="Content\assets\images\favicon\favicon.ico" />
+    <Content Include="Content\assets\images\favicon\ms-icon-144x144.png" />
+    <Content Include="Content\assets\images\favicon\ms-icon-150x150.png" />
+    <Content Include="Content\assets\images\favicon\ms-icon-310x310.png" />
+    <Content Include="Content\assets\images\favicon\ms-icon-70x70.png" />
     <Content Include="Content\assets\images\Logosemcor-horizontal.png" />
     <Content Include="Content\assets\images\Logosemcor.png" />
+    <Content Include="Content\assets\images\slide1.jpg" />
+    <Content Include="Content\assets\images\slide2.jpg" />
     <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
     <Content Include="Content\assets\js\cep.js" />
     <Content Include="Content\assets\js\delete.js" />
@@ -276,6 +328,21 @@
     <Content Include="Content\bootstrap\_type.scss" />
     <Content Include="Content\bootstrap\_utilities.scss" />
     <Content Include="Content\bootstrap\_variables.scss" />
+    <Content Include="Imagens\71p3SI69qeS.jpg" />
+    <Content Include="Imagens\arquitera limpa.jpg" />
+    <Content Include="Imagens\B07B61HC3L.01._SCLZZZZZZZ_SX500_.jpg" />
+    <Content Include="Imagens\como_ser_um_programador_melhor.jpg" />
+    <Content Include="Imagens\Código-limpo-Habilidades-Práticas-do-Agile-Software-1024x833.png" />
+    <Content Include="Imagens\data_science.jpg" />
+    <Content Include="Imagens\engenharia moderna.jpg" />
+    <Content Include="Imagens\lupin.jpg" />
+    <Content Include="Imagens\o-pequeno-principe.jpg" />
+    <Content Include="Imagens\refatoracao.jpg" />
+    <Content Include="Imagens\regulares.jpg" />
+    <Content Include="Imagens\s20.png" />
+    <Content Include="Imagens\teclado.jfif" />
+    <Content Include="Imagens\teclado.jpg" />
+    <Content Include="Imagens\índice.jpg" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\inputmask.js" />
     <Content Include="Scripts\inputmask\inputmask.min.js" />
@@ -299,7 +366,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
-    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />
@@ -327,12 +393,31 @@
     <Content Include="Areas\Admin\Views\Clientes\Consultar.cshtml" />
     <Content Include="Areas\Admin\Views\Clientes\Editar.cshtml" />
     <Content Include="Areas\Admin\Views\Produtos\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Produtos\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Produtos\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Livros\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Livros\Consultar.cshtml" />
+    <Content Include="Areas\Admin\Views\Livros\Editar.cshtml" />
+    <Content Include="Areas\Admin\Views\Entregas\Consultar.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\scss\sections\_main_adm.scss" />
+    <Content Include="Content\assets\images\favicon\manifest.json" />
+    <Content Include="Content\scss\sections\_main.scss" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_carousel.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Home\Carrinho.cshtml" />
+    <Content Include="Views\Login\Login2.cshtml" />
+    <Content Include="Views\Home\Detalhes.cshtml" />
+    <Content Include="Views\Home\confVenda.cshtml" />
+    <Content Include="Views\Home\Cadastrar.cshtml" />
+    <Content Include="Views\Home\ConsultaporNome.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Login\semAcesso.cshtml" />
+    <Content Include="Views\Perfil\Pedidos.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

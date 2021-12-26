@@ -28,8 +28,10 @@
         </td>
         <td>
             <a href="@Url.Action( "Editar", new {  id=item.cd_editora })" class="bg-primary text-dark rounded p-1"><i class="bi bi-pen"></i></a>
+            @if(Session["tipoLogado2"] != null){
             <a class="bg-primary text-dark rounded p-1" style="cursor:pointer" onclick="ConfirmDelete(@item.cd_editora)"><i class="bi bi-trash"></i></a>
-        </td>
+            }
+       </td>
     </tr>
 
 

@@ -16,12 +16,12 @@ namespace Livraria_Lunar_E_commerce.Models
         [MaxLength(70, ErrorMessage = "O nome do Cliente deve conter no máximo 70 caracteres")]
         public string nm_cliente { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Email é obrigatório")]
         [Display(Name = "Email")]
         [MaxLength(70, ErrorMessage = "O Email do Cliente deve conter no máximo 70 caracteres")]
         public string ds_email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Senha é obrigatório")]
         [Display(Name = "Senha")]
         [MaxLength(20, ErrorMessage = "A senha do Cliente deve conter no máximo 20 caracteres")]
         [MinLength(8, ErrorMessage = "A senha deve conter no mínimo 8 caracteres")]
@@ -49,6 +49,10 @@ namespace Livraria_Lunar_E_commerce.Models
         [MaxLength(5, ErrorMessage = "O Número deve conter no máximo 5 dígitos")]
         [RegularExpression("([1-9][0-9]*)")]
         public string no_logradouro { get; set; }
+
+        [Display(Name = "Complemento")]
+        [MaxLength(60, ErrorMessage = "O Complemento deve conter no máximo 60 caracteres")]
+        public string ds_complemento { get; set; }
 
         [Required]
         [Display(Name = "Bairro")]
@@ -79,7 +83,7 @@ namespace Livraria_Lunar_E_commerce.Models
         public string sg_sexo { get; set; }
 
 
-        
+        public int ds_tipo { get; set; }
 
     }
 }

@@ -67,7 +67,14 @@ namespace Livraria_Lunar_E_commerce.Business
 
             cmd.Parameters.Add("@CodEditora", MySqlDbType.Int32).Value = id;
 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
             con.MyDesConectarBD();
         }
 

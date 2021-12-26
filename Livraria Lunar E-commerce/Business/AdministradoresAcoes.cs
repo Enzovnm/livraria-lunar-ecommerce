@@ -18,7 +18,7 @@ namespace Livraria_Lunar_E_commerce.Business
             Conexao con = new Conexao();
 
             MySqlCommand cmd = new MySqlCommand("Call sp_InsAdministradores(@nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone, " +
-                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade,"+
+                "@no_celular, @nm_logradouro, @no_logradouro, @ds_complemento, @nm_bairro, @nm_cidade,"+
                 "@sg_uf, @no_cep, @sg_sexo, @ds_status, @ds_tipo);", con.MyConectarBD());
 
             cmd.Parameters.Add("@nm_usuario", MySqlDbType.VarChar).Value = dto.nm_admin;
@@ -29,6 +29,7 @@ namespace Livraria_Lunar_E_commerce.Business
             cmd.Parameters.Add("@no_celular", MySqlDbType.VarChar).Value = dto.celular;
             cmd.Parameters.Add("@nm_logradouro", MySqlDbType.VarChar).Value = dto.rua;
             cmd.Parameters.Add("@no_logradouro", MySqlDbType.VarChar).Value = dto.no_logradouro;
+            cmd.Parameters.Add("@ds_complemento", MySqlDbType.VarChar).Value = dto.ds_complemento;
             cmd.Parameters.Add("@nm_bairro", MySqlDbType.VarChar).Value = dto.bairro;
             cmd.Parameters.Add("@nm_cidade", MySqlDbType.VarChar).Value = dto.cidade;
             cmd.Parameters.Add("@sg_uf", MySqlDbType.VarChar).Value = dto.uf;
@@ -48,7 +49,7 @@ namespace Livraria_Lunar_E_commerce.Business
             Conexao con = new Conexao();
             
             MySqlCommand cmd = new MySqlCommand("Call sp_AltAdministradores(@CodUsuario, @nm_usuario, @ds_email, @ds_senha, @no_cpf, @no_telefone," +
-                "@no_celular, @nm_logradouro, @no_logradouro, @nm_bairro, @nm_cidade, @sg_uf,"+
+                "@no_celular, @nm_logradouro, @no_logradouro,@ds_complemento @nm_bairro, @nm_cidade, @sg_uf,"+
                 " @no_cep, @sg_sexo, @ds_status, @ds_tipo);", con.MyConectarBD());
 
             cmd.Parameters.Add("@CodUsuario", MySqlDbType.Int32).Value = dto.cd_admin;
@@ -60,6 +61,7 @@ namespace Livraria_Lunar_E_commerce.Business
             cmd.Parameters.Add("@no_celular", MySqlDbType.VarChar).Value = dto.celular;
             cmd.Parameters.Add("@nm_logradouro", MySqlDbType.VarChar).Value = dto.rua;
             cmd.Parameters.Add("@no_logradouro", MySqlDbType.VarChar).Value = dto.no_logradouro;
+            cmd.Parameters.Add("@ds_complemento", MySqlDbType.VarChar).Value = dto.ds_complemento;
             cmd.Parameters.Add("@nm_bairro", MySqlDbType.VarChar).Value = dto.bairro;
             cmd.Parameters.Add("@nm_cidade", MySqlDbType.VarChar).Value = dto.cidade;
             cmd.Parameters.Add("@sg_uf", MySqlDbType.VarChar).Value = dto.uf;

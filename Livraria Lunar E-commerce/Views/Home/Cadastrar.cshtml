@@ -1,0 +1,189 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Cliente
+<html>
+<head>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/scss/estilo.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+</head>
+<body style="background-color:#f5f5f5">
+    @{
+        ViewBag.Title = "Login";
+        Layout = null;
+    }
+
+
+
+    <div class="position-relative vw-100 vh-100">
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <form method="get" action=".">
+                <div class="position-absolute top-50 start-50 translate-middle w-75 rounded-3" style="height:auto">
+                    <div class="d-flex h-100">
+                        <div class="bg-white rounded-start d-flex flex-column" style="width:100%;">
+                            <h2 class="fw-bold text-center mt-5">Criar uma conta</h2>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.nm_cliente, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.nm_cliente, htmlAttributes: new { @class = "form__label" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.nm_cliente, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.ds_email, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.ds_email, htmlAttributes: new { @class = "form__label" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ds_email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.ds_senha, new { htmlAttributes = new { @class = "form__input", @placeholder = " ", @type = "password" } })
+                                        @Html.LabelFor(model => model.ds_senha, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ds_senha, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.cpf, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.telefone, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.telefone, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.telefone, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.celular, htmlAttributes: new { @class = "form__label" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.cep, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.cep, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.cep, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.bairro, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.bairro, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.rua, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.rua, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+
+                                    @Html.ValidationMessageFor(model => model.rua, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.no_logradouro, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.no_logradouro, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.no_logradouro, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.ds_complemento, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.ds_complemento, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ds_complemento, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.uf, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.uf, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.uf, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            <div class="row mt-4 px-4">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.EditorFor(model => model.cidade, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                        @Html.LabelFor(model => model.cidade, htmlAttributes: new { @class = "form__label" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.cidade, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="form__div col-md-12 col-lg-10">
+                                        @Html.DropDownList("sg_sexo", new List<SelectListItem> {
+                                            new SelectListItem{ Text= "Masculino", Value="M"},
+                                            new SelectListItem{ Text= "Feminino", Value="F" },
+
+                                            }, "Selecione um Sexo", htmlAttributes: new { @class = "form__input p-2", @placeholder = "" })
+                                        @Html.LabelFor(model => model.sg_sexo, htmlAttributes: new { @class = "form__label" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.sg_sexo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="text-center mt-3 mb-5">
+                                <input type="submit" value="Cadastrar" class="btn btn-primary py-3" style="border-radius:50px; padding:1px 100px" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Content/assets/js/cep.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#celular").inputmask("mask", { "mask": "(99) 9999-99999" });
+            $("#telefone").inputmask("mask", { "mask": "9999-9999" });
+            $('.date').mask('00/00/0000');
+            $('.vl_unitario').mask('000.000.000.000.000,00', { reverse: true });
+        });
+
+
+
+    </script>
+
+    @Scripts.Render("~/bundles/inputmask")
+</body>
+</html>

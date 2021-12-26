@@ -86,7 +86,9 @@
 
             <td>
                 <a href="@Url.Action( "Editar", new {  id=item.cd_cliente  })" class="bg-primary text-dark rounded p-1"><i class="bi bi-pen"></i></a>
+                 @if(Session["tipoLogado2"] != null){
                 <a style="cursor:pointer" class="bg-primary text-dark rounded p-1 delete" onclick="ConfirmDelete(@item.cd_cliente)"><i class="bi bi-trash"></i></a>
+                 }
             </td>
 
         </tr>

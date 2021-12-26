@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Livraria Lunar</title>
     <link href="~/Content/scss/estilo1.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +34,7 @@
             <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
-            <a class="navbar-brand text-dark fw-bold text-uppercase me-auto" href="#"><img src="~/Content/assets/images/Logosemcor-horizontal.png" alt="Logo" class="img-fluid" /></a>
+            <a class="navbar-brand text-dark fw-bold text-uppercase me-auto" href="/Admin/Home/Index"><img src="~/Content/assets/images/Logosemcor-horizontal.png" alt="Logo" class="img-fluid" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-info-circle"></i>
             </button>
@@ -45,10 +51,7 @@
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="nav-link" href="/Login/Logout">Logout <i class="bi bi-box-arrow-left"></i></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -165,13 +168,38 @@
                             <div>
                                 <ul class="navbar-nav ps-3">
                                     <li>
-                                        <a href="" class="nav-link px-3">
+                                        <a href="/Admin/Produtos/Cadastrar" class="nav-link px-3">
                                             <span class="me-2 text-white-50"><i class="bi bi-plus-circle"></i></span>
                                             <span class="text-white-50">Cadastrar</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="nav-link px-3">
+                                        <a href="/Admin/Produtos/Consultar" class="nav-link px-3">
+                                            <span class="me-2 text-white-50"><i class="bi bi-search"></i></span>
+                                            <span class="text-white-50">Consultar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link px-3 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample31" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <span class="me-3 text-white-50"><i class="bi bi-book"></i></span>
+                            <span class="text-white-50 ">Livros</span>
+                            <span class="right-icon ms-auto text-white-50"><i class="bi bi-chevron-down"></i></span>
+                        </a>
+                        <div class="collapse" id="collapseExample31">
+                            <div>
+                                <ul class="navbar-nav ps-3">
+                                    <li>
+                                        <a href="/Admin/Livros/Cadastrar" class="nav-link px-3">
+                                            <span class="me-2 text-white-50"><i class="bi bi-plus-circle"></i></span>
+                                            <span class="text-white-50">Cadastrar</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/Livros/Consultar" class="nav-link px-3">
                                             <span class="me-2 text-white-50"><i class="bi bi-search"></i></span>
                                             <span class="text-white-50">Consultar</span>
                                         </a>
@@ -182,7 +210,7 @@
                     </li>
                     <li>
                         <a class="nav-link px-3 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <span class="me-3 text-white-50"><i class="bi bi-book"></i></span>
+                            <span class="me-3 text-white-50"><i class="bi bi-bookmark-star"></i></span>
                             <span class="text-white-50 ">Autor</span>
                             <span class="right-icon ms-auto text-white-50"><i class="bi bi-chevron-down"></i></span>
                         </a>
@@ -240,13 +268,7 @@
                             <div>
                                 <ul class="navbar-nav ps-3">
                                     <li>
-                                        <a href="" class="nav-link px-3">
-                                            <span class="me-2 text-white-50"><i class="bi bi-plus-circle"></i></span>
-                                            <span class="text-white-50">Cadastrar</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="nav-link px-3">
+                                        <a href="/Admin/Entregas/Consultar" class="nav-link px-3">
                                             <span class="me-2 text-white-50"><i class="bi bi-search"></i></span>
                                             <span class="text-white-50">Consultar</span>
                                         </a>
@@ -255,26 +277,26 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a class="nav-link px-3 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <span class="me-3 text-white-50"><i class="bi bi-chat"></i></span>
-                            <span class="text-white-50 ">Comentários</span>
-                            <span class="right-icon ms-auto text-white-50"><i class="bi bi-chevron-down"></i></span>
-                        </a>
-                        <div class="collapse" id="collapseExample7">
-                            <div>
-                                <ul class="navbar-nav ps-3">
+                    <!-- <li>
+        <a class="nav-link px-3 sidebar-link mt-2" data-bs-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span class="me-3 text-white-50"><i class="bi bi-chat"></i></span>
+            <span class="text-white-50 ">Comentários</span>
+            <span class="right-icon ms-auto text-white-50"><i class="bi bi-chevron-down"></i></span>
+        </a>
+        <div class="collapse" id="collapseExample7">
+            <div>
+                <ul class="navbar-nav ps-3">
 
-                                    <li>
-                                        <a href="/Admin/Comentario/Consultar" class="nav-link px-3">
-                                            <span class="me-2 text-white-50"><i class="bi bi-search"></i></span>
-                                            <span class="text-white-50">Consultar</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <li>
+                        <a href="/Admin/Comentario/Consultar" class="nav-link px-3">
+                            <span class="me-2 text-white-50"><i class="bi bi-search"></i></span>
+                            <span class="text-white-50">Consultar</span>
+                        </a>
                     </li>
+                </ul>
+            </div>
+        </div>
+    </li>-->
                 </ul>
             </nav>
         </div>
@@ -305,6 +327,7 @@
             $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
             $("#celular").inputmask("mask", { "mask": "(99) 9999-99999" });
             $("#telefone").inputmask("mask", { "mask": "9999-9999" });
+            $('.date').mask('00/00/0000');
             $('.vl_unitario').mask('000.000.000.000.000,00', { reverse: true });
         });
 

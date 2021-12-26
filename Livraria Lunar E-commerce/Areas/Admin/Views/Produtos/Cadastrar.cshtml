@@ -1,69 +1,87 @@
 ﻿@model Livraria_Lunar_E_commerce.Models.Produtos
 
-@{
-    ViewBag.Title = "Cadastrar";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
+@{ ViewBag.Title = "Cadastrar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
 
 <h2 class="text-center  mb-0 bg-title py-5 text-white">Cadastro de Produtos</h2>
 
 
 @using (Html.BeginForm("Cadastrar", "Produtos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="shadow p-3 ps-md-2 ps-lg-5 pt-5 bg-body rounded pb-5 div__shadow overflow-hidden">
-        <div class="row">
-            <div class="col-md-12 col-lg-6">
-                <div class="form__div col-md-12 col-lg-10">
-                    @Html.EditorFor(model => model.nm_produto, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
-                    @Html.LabelFor(model => model.nm_produto, htmlAttributes: new { @class = "form__label" })
-                </div>
-                @Html.ValidationMessageFor(model => model.nm_produto, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="form__div col-md-12 col-lg-10">
-                    @Html.EditorFor(model => model.vl_unitario, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
-                    @Html.LabelFor(model => model.vl_unitario, htmlAttributes: new { @class = "form__label" })
-                </div>
-                @Html.ValidationMessageFor(model => model.vl_unitario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-12 col-lg-6">
-                <div class="form__div col-md-12 col-lg-10">
-                    @Html.EditorFor(model => model.desc_produto, new { htmlAttributes = new { @class = "form__input", @placeholder = " ", } })
-                    @Html.LabelFor(model => model.desc_produto, htmlAttributes: new { @class = "form__label" })
+                                <div class="shadow p-3 ps-md-2 ps-lg-5 pt-5 bg-body rounded pb-5 div__shadow overflow-hidden">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                @Html.EditorFor(model => model.nm_produto, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                                @Html.LabelFor(model => model.nm_produto, htmlAttributes: new { @class = "form__label" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.nm_produto, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                @Html.EditorFor(model => model.vl_unitario, new { htmlAttributes = new { @class = "form__input vl_unitario", @placeholder = " ", } })
+                                                @Html.LabelFor(model => model.vl_unitario, htmlAttributes: new { @class = "form__label" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.vl_unitario, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                @Html.EditorFor(model => model.desc_produto, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                                @Html.LabelFor(model => model.desc_produto, htmlAttributes: new { @class = "form__label" })
 
-                </div>
-                @Html.ValidationMessageFor(model => model.desc_produto, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="form__div col-md-12 col-lg-10">
-                    @Html.DropDownList("cd_categoria", (SelectList)ViewBag.categoria, "Selecione uma categoria", htmlAttributes: new { @class = "form__input p-2", @placeholder = "" })
-                    @Html.LabelFor(model => model.cd_categoria, htmlAttributes: new { @class = "form__label" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.desc_produto, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                @Html.DropDownList("cd_categoria", (SelectList)ViewBag.categoria, "Selecione uma categoria", htmlAttributes: new { @class = "form__input p-2", @placeholder = "" })
+                                                @Html.LabelFor(model => model.cd_categoria, htmlAttributes: new { @class = "form__label" })
 
-                </div>
-                @Html.ValidationMessageFor(model => model.cd_categoria, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-12 col-lg-6">
-                <div class="form__div col-md-12 col-lg-10">
-                    <label for="file">Imagem do produto</label>
-                    <input type="file" name="file" id="file" class="form-control" />
-                </div>
-                @Html.ValidationMessageFor(model => model.img_produto, "", new { @class = "text-danger" })
-                <p class="text-danger">
-                    @ViewBag.imagem
-                </p>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.cd_categoria, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                @Html.EditorFor(model => model.qt_estoque, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                                                @Html.LabelFor(model => model.qt_estoque, htmlAttributes: new { @class = "form__label" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.qt_estoque, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
 
-            </div>
 
-        </div>
-        <div class="text-center">
-            <input type="submit" value="Cadastrar" class="btn btn-primary px-5 py-3 translate-middle-x rounded" />
-        </div>
-    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form__div col-md-12 col-lg-10">
+                                                <label for="file">Imagem do produto</label>
+                                                <input type="file" name="file" id="file" class="form-control" />
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.img_produto, "", new { @class = "text-danger" })
+                                            <p class="text-danger">
+                                                @ViewBag.imagem
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <input type="submit" value="Cadastrar" class="btn btn-primary px-5 py-3 translate-middle-x rounded mt-5" onclick="mask()" />
+                                    </div>
+                                </div>}
+
+@section scripts{
+    <script type="text/javascript">
+
+        function mask() {
+            var valormasc = document.getElementById('vl_unitario').value;
+            var valorsmasc = valormasc.replace(".", "");
+            document.getElementById('vl_unitario').value = valorsmasc;
+        }
+
+    </script>
 }

@@ -1,0 +1,49 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Produtos
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+
+
+
+<div class="container mt-5 bg-white rounded mb-5 h-auto py-5">
+    <div class="row">
+        <div class="col-4 p-5 pt-0">
+            <img src="@Model.img_produto" class="img-fluid">
+        </div>
+        <div class="col-8">
+            <div class="px-5">
+                <h2 class="mt-2 fw-bold ">@Model.nm_produto</h2>
+                <h4>Por <b>R$ @Model.vl_unitario</b></h4>
+                <div class="mt-5">
+                    <p style="text-align:justify">@Model.desc_produto</p>
+                    <p><b>Categoria:</b> @Model.nm_categoria</p>
+                    @if (Model.nm_autor != "")
+                    {
+                        <p><b>Autor:</b> @Model.nm_autor</p>
+                    }
+                    @if (Model.nm_editora != "")
+                    {
+                        <p><b>Editora:</b> @Model.nm_editora</p>
+                    }
+                    @if (Model.no_isbn != "")
+                    {
+                        <p><b>ISBN:</b> @Model.no_isbn</p>
+                    }
+                <div class="mt-5">
+                    @using (Html.BeginForm("AdicionarCarrinho", "Home", FormMethod.Post))
+                    {
+                        <input type="hidden" name="id" value=@Model.cd_produto>
+                        <input type="hidden" name="pre" value=@Model.vl_unitario>
+                        <input type="hidden" name="img" value=@Model.img_produto>
+                        <input type="hidden" name="quantidade" value="1">
+                        <button type="submit" class="btn-success text-decoration-none border-0 p-3">Adicionar ao carrinho <i class="bi bi-cart4"></i></button>
+                    }
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

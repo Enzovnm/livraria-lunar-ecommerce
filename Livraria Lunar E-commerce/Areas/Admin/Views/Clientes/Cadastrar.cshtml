@@ -127,6 +127,14 @@
             <div class="row mt-4">
                 <div class="col-md-12 col-lg-6">
                     <div class="form__div col-md-12 col-lg-10">
+                        @Html.EditorFor(model => model.ds_complemento, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                        @Html.LabelFor(model => model.ds_complemento, htmlAttributes: new { @class = "form__label" })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cidade, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="form__div col-md-12 col-lg-10">
                         @Html.DropDownList("sg_sexo", new List<SelectListItem> {
                             new SelectListItem{ Text= "Masculino", Value="M"},
                             new SelectListItem{ Text= "Feminino", Value="F" },

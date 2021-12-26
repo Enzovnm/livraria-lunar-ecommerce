@@ -1,0 +1,60 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Compra
+@{
+    ViewBag.Title = "Carrinho";
+}
+
+
+@if (Model.ItensDaCompra.Count != 0)
+{
+
+<div class="container py-4">
+    <h1 class="fw-bold display-6">Carrinho</h1>
+    <div class="row">
+        <div class="col-8">
+            @foreach (var item in Model.ItensDaCompra)
+            {
+            <div class="w-100 mt-5 shadow-sm p-5 d-flex justify-content-between">
+
+                <img src="@item.img" style="max-width:6rem" />
+                <p class="ms-2">@item.nm_produto</p>
+                <p class="me-4 ms-4">Quantidade: <b>@item.qtdeVendas</b></p>
+                <h4 class="fw-bold">R$@item.valorParcial </h4>
+                <a href="@Url.Action( "ExcluirItem", "Home",  new { id = item.cd_itemCompras })" class="ms-5 text-decoration-none text-danger" style="font-size:0.8rem">Remover</a>
+            </div>
+            
+
+            }
+        </div>
+        <div class="col-4">
+            <div class="ms-5 shadow-sm p-4">
+                <h4>Total:</h4>
+                <h2 class="fw-bold">R$@Model.vl_total</h2>
+                <h5 class="mt-3">Forma de pagamento:</h5>
+                <div class="mt-2">
+                    Cartão<input type="radio" value="Cartão de crédito" /><br/>
+                    Boleto<input type="radio" value="Boleto" id=""/>
+                </div>
+
+                <div class="pt-5 d-block w-100">
+                    <a href="@Url.Action( "Index", "Home")" class="btn-secondary text-decoration-none border-0 p-3 d-block px-5 text-center">Continuar comprando</a>
+
+                </div>
+                <div class="mt-5 d-block w-100">
+                    <a href="@Url.Action( "SalvarCarrinho", "Home")" class="btn-success text-decoration-none border-0 p-3 d-block px-5 text-center">Finalizar Compra</a>
+
+                </div>
+
+
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+}
+
+else { 
+    <div class="container mt-4">
+        <h1 class="text-center">Seu carrinho está vazio</h1>
+    </div>
+}

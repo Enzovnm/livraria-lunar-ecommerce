@@ -10,9 +10,21 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 {
     public class AdministradoresController : Controller
     {
+
         // GET: Admin/Administradores
         public ActionResult Cadastrar()
         {
+           if (Session["usuariologado"] == null || Session["senhaLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login", new { area = "" });
+            }
+
+            
+            if (Session["tipologado2"] == null && Session["tipologado3"] == null)
+            {
+                return RedirectToAction("semAcesso", "Login", new { area = "" });
+            }
+
             return View();
         }
 
@@ -30,6 +42,16 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 
         public ActionResult Consultar()
         {
+            if (Session["usuariologado"] == null || Session["senhaLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login", new { area = "" });
+            }
+
+            
+            if (Session["tipologado2"] == null && Session["tipologado3"] == null)
+            {
+                return RedirectToAction("semAcesso", "Login", new { area = "" });
+            }
             AdministradoresAcoes acAdmin = new AdministradoresAcoes();
             return View(acAdmin.Consultar());
         }
@@ -37,6 +59,7 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 
         public ActionResult Editar(int id)
         {
+            
             AdministradoresAcoes acAdmin = new AdministradoresAcoes();
             return View(acAdmin.Consultar().Find(dto => dto.cd_admin == id));
         }

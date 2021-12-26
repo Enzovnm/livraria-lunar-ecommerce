@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Pedido>
+
+@{
+    ViewBag.Title = "Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center mt-4">Pedidos</h2>
+
+
+
+@foreach (var item in Model) {
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="shadow d-flex justify-content-between p-5">
+               
+                <h6><b>Codigo da compra:</b> @item.cd_compra</h6>
+                <h6 class="me-4"><b>Produto(s):</b> @item.nm_produto</h6>
+                <h6><b>Valor total da Compra:</b> R$@item.vl_total</h6>
+                <h6><b>Previsao entrega:</b> @item.dt_entrega.ToString("dd/MM/yyyy")</h6>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -50,6 +50,12 @@ namespace Livraria_Lunar_E_commerce.Models
         [RegularExpression("([1-9][0-9]*)")]
         public string no_logradouro { get; set; }
 
+
+
+        [Display(Name = "Complemento")]
+        [MaxLength(60, ErrorMessage = "O complemento deve conter no máximo 60 caracteres")]
+        public string ds_complemento { get; set; }
+
         [Required]
         [Display(Name = "Bairro")]
         [MaxLength(120, ErrorMessage = "O Bairro deve conter no máximo 120 caracteres")]

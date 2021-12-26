@@ -10,9 +10,21 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
 {
     public class ClientesController : Controller
     {
+ 
         // GET: Admin/Clientes
         public ActionResult Cadastrar()
         {
+            if (Session["usuariologado"] == null || Session["senhaLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login", new { area = "" });
+            }
+
+            
+            if (Session["tipologado2"] == null && Session["tipologado3"] == null)
+            {
+                return RedirectToAction("semAcesso", "Login", new { area = "" });
+            }
+
             return View();
         }
 
@@ -28,8 +40,19 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Consultar(Cliente Cliente)
+        public ActionResult Consultar()
         {
+            if (Session["usuariologado"] == null || Session["senhaLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login", new { area = "" });
+            }
+
+            
+            if (Session["tipologado2"] == null && Session["tipologado3"] == null)
+            {
+                return RedirectToAction("semAcesso", "Login", new { area = "" });
+            }
+
             ClientesAcoes acCliente = new ClientesAcoes(); 
             return View(acCliente.Consultar());
         }

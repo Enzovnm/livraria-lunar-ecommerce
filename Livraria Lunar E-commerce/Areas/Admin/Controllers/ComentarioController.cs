@@ -17,6 +17,17 @@ namespace Livraria_Lunar_E_commerce.Areas.Admin.Controllers
         // GET: Admin/Comentario
         public ActionResult Consultar()
         {
+            if (Session["usuariologado"] == null || Session["senhaLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login", new { area = "" });
+            }
+
+            
+            if (Session["tipologado2"] == null && Session["tipologado3"] == null)
+            {
+                return RedirectToAction("semAcesso", "Login", new { area = "" });
+            }
+
             ComentarioAcoes acComentario = new ComentarioAcoes();
             return View(acComentario.Consultar());
         }

@@ -7708,3 +7708,6 @@ main {
   @media (min-width: 992px) {
     .table {
       table-layout: fixed; } }
+
+.wrapper {
+  min-height: 100vh; }

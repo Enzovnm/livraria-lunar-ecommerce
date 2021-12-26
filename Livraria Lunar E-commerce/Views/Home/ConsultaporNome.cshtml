@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Produtos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <div class="row g-3">
+        @foreach (var item in Model.OrderByDescending(x => x.cd_categoria))
+        {
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <div class="card text-center border-0 shadow-sm " style="max-height:350px; height:350px;">
+        <div class="pt-3 px-2" style="height:180px">
+            <img class="card-img-top" src="@item.img_produto" alt="@item.nm_produto" style="width:6rem">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between bg-light" style="height:170px">
+            <h6 class="" style="height:150px;">@item.nm_produto</h6>
+            <a href="@Url.Action( "Detalhes", new {  id=item.cd_produto  })" class="btn btn-outline-secondary">Saiba Mais</a>
+        </div>
+    </div>
+</div>}
+    </div>
+</div>
+

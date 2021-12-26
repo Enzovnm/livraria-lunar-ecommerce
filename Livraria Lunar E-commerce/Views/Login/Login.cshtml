@@ -1,0 +1,60 @@
+﻿@model Livraria_Lunar_E_commerce.Models.Cliente
+<html style="overflow:hidden; ">
+<head>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/scss/estilo.css" rel="stylesheet" />
+</head>
+<body style="background-color:#f5f5f5">
+    @{
+        ViewBag.Title = "Login";
+        Layout = null;
+    }
+
+
+
+    <div class="position-relative vw-100 vh-100 overflow-hidden">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { htmlAttributes = new { @class = "overflow-hidden" } }))
+        {
+        <div class="position-absolute top-50 start-50 translate-middle w-75 rounded-3" style="height:30rem">
+            <div class="d-flex h-100">
+                <div class="bg-white rounded-start d-flex flex-column" style="width:60%;">
+                    <h2 class="fw-bold text-center mt-5">Faça seu login</h2>
+                    <div class="col-md-12 col-lg-12 mt-5 px-5">
+                        <p class="text-danger">@ViewBag.msg</p>
+                        <div class="form__div col-md-12 col-lg-12">
+                            @Html.EditorFor(model => model.ds_email, new { htmlAttributes = new { @class = "form__input", @placeholder = " " } })
+                            @Html.LabelFor(model => model.ds_email, htmlAttributes: new { @class = "form__label" })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ds_email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-12 col-lg-12 mt-2 px-5">
+                        <div class="form__div col-md-12 col-lg-12">
+                            @Html.EditorFor(model => model.ds_senha, new { htmlAttributes = new { @class = "form__input", @placeholder = " ", @type = "password" } })
+                            @Html.LabelFor(model => model.ds_senha, htmlAttributes: new { @class = "form__label" })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ds_senha, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <input type="submit" value="Login" class="btn btn-primary py-3" style="border-radius:50px; padding:1px 100px" />
+                    </div>
+                </div>
+                <div class="bg-primary rounded-end d-flex flex-column" style="width:40%;">
+                    <h2 class="text-white fw-bold  pt-5 text-center">Olá, usuário!</h2>
+                    <p class="text-light text-center">Entre com seus detalhes pessoais<br /> e inicie as compras</p>
+                    <div class="text-center mt-5">
+                        <a href="/Home/Cadastrar" class="btn btn-outline-dark py-3" style="border-radius:50px; padding:1px 100px">Cadastre-se</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        }
+    </div>
+</body>
+</html>

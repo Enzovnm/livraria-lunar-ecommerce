@@ -1,9 +1,96 @@
-﻿
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Dashboard>
+
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Início";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 
+@if (Model != null)
+{
 
-lorem ipsimdsakadnajkdada adlkjadnmas aldmalkdmalkdmkla dklads dkmald skd
+foreach (var item in Model)
+{
+<div class="d-flex flex-column align-items-center">
+
+    <div class="container">
+        <div class="row">
+            @if (item.Caixa != null)
+            {
+            <div class="col-12 col-md-4">
+                <div class="shadow bg-success p-3 rounded">
+                    <h3 class="text-white text-center fw-bold">Caixa</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">R$@item.Caixa<i class="bi bi-cash text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            }
+            @if (item.Clientes != null)
+            {
+            <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <div class="shadow bg-info p-3 rounded">
+                    <h3 class="text-white text-center fw-bold">Clientes</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">@item.Clientes<i class="bi bi-people text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            }
+            @if (item.Funcionarios != null)
+            {
+            <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <div class="shadow  p-3 rounded" style="background-color: #0d6efd">
+                    <h3 class="text-white text-center fw-bold">Funcionários</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">@item.Funcionarios<i class="bi bi-shield text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>}
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            @if (item.Produtos != null)
+            {
+            <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <div class="shadow bg-warning p-3 rounded">
+                    <h3 class="text-white text-center fw-bold">Produtos</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">@item.Produtos<i class="bi bi-box text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>}
+            @if (item.Autores != null)
+            {
+            <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <div class="shadow  p-3 rounded" style="background-color: #6f42c1 ">
+                    <h3 class="text-white text-center fw-bold">Autores</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">@item.Autores<i class="bi bi-bookmark-star text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>}
+            @if (item.Editora != null)
+            {
+            <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <div class="shadow  p-3 bg-danger rounded">
+                    <h3 class="text-white text-center fw-bold">Editoras</h3>
+                    <div class="d-flex justify-content-center mt-3">
+                        <h4 class="text-white text-start fw-bold">@item.Editora<i class="bi bi-journal-bookmark text-white ms-4"></i></h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>}
+        </div>
+    </div>
+</div>
+}
+}

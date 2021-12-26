@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Livraria_Lunar_E_commerce.Models.Entregas>
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="width:100%" class="d-none d-lg-block">
+    <h2 class="text-center mt-2 mb-0 bg-title py-5 text-white ">Consulta de Entregas</h2>
+</div>
+
+<table class="table text-center table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cd_compra)
+        </th>
+        <th style="width:8rem; overflow: hidden; text-overflow: ellipsis; white-space:nowrap" >
+            @Html.DisplayNameFor(model => model.nm_produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vl_total)
+        </th>
+        <th style="width:5rem; overflow: hidden; text-overflow: ellipsis; white-space:nowrap">
+            @Html.DisplayNameFor(model => model.nm_usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dt_entrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_cep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nm_logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ds_complemento)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cd_compra)
+        </td>
+        <td style="width:4rem; overflow: hidden; text-overflow: ellipsis; white-space:nowrap" title="@item.nm_produto">
+            @Html.DisplayFor(modelItem => item.nm_produto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vl_total)
+        </td>
+        <td style="width:4rem; overflow: hidden; text-overflow: ellipsis; white-space:nowrap" title="@item.nm_usuario">
+            @Html.DisplayFor(modelItem => item.nm_usuario)
+        </td>
+        <td>
+            @item.dt_entrega.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_cep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nm_logradouro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_logradouro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ds_complemento)
+        </td>
+    </tr>
+}
+
+</table>
