@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "vslsRemoteLaunch",
+            "name": "Livraria Lunar E-commerce",
+            "request": "attach",
+            "projectID": "bed0aa8d-be69-4e69-8c97-1193e3e7f29b"
+        }
+    ]
+}
