@@ -1,4 +1,4 @@
-# 📚 Livraria E-commerce
+# 📚 Livraria Lunar E-commerce
 
 
 An e-commerce developed for a fictional bookstore
