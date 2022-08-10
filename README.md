@@ -11,6 +11,7 @@ Here are the technologies used in this project.
 * MYSQL
 * HTML
 * CSS
+* BOOTSTRAP
 * SASS
 * JS
 
